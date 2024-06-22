@@ -1,6 +1,6 @@
 from django.db import models
 
-#model for ingredients
+# model for ingredients
 class Ingredient(models.Model):
     name = models.CharField(max_length=200)
     quantity = models.FloatField()
@@ -19,7 +19,7 @@ class MenuItem(models.Model):
     
 
 # model for Recipe
-class RecipeRequirementI(models.Model):
+class RecipeRequirement(models.Model):
     menu = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
     quanity = models.FloatField()
