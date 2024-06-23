@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CE Delights</title>
+</head>
+
+<body>
+    <h1>Welcome to CE Delights</h1>
+    <h2>Ingredients</h2>
+    <ul>
+        {% for ingredient in ingredients %}
+            <li>{{ ingredient.name }}: {{ ingredient.quantity }} units at ${{ingredient.price_per_unit }} per unit</li>
+        {% endfor %}
+    </ul>
+    <h2>Menu Items</h2>
+    <ul>
+        {% for item in menu_items %}
+            <li>{{ item.name }}: ${{ item.price }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Purchases</h2>
+    <ul>
+        {% for purchase in purchases %}
+        <li>{{ purchase.menu_item.name }} purchases at {{ purchase.timestamp }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url'add_ingredient'%}">Add Ingredient</a>
+    <a href="{% url'add_menu_item'%}">Add Menu Item</a>
+    <a href="{% url'add_recipe_requirement'%}">Add Recipe Requirement</a>
+    <a href="{% url'add_purchase'%}">Add Purchase</a>
+</body>
+</html>
